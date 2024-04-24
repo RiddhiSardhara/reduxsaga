@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import Data from "./componets/Data";
+import { GET_USER_PENDING } from "./redux-saga/user/action/action";
+
+
 
 function App() {
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: GET_USER_PENDING});
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Data/>
     </div>
   );
 }
